@@ -1,0 +1,10 @@
+__pycache__/
+tests/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+build/
+dist/
+src/*.egg-info/
+src/python_drmanhatan.egg-info/
