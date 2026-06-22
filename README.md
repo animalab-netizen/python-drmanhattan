@@ -72,7 +72,7 @@ The API is usable and unit-tested, but it is still under refinement. Expect incr
 
 - package: `python-drmanhatan`
 - repository: `python-drmanhatan`
-- version: `0.1.0`
+- version: `0.1.1`
 
 Installation:
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0
+## 0.1.1
 
 - created the standalone `python-drmanhatan` package
 - added immutable event modeling

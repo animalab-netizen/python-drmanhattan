@@ -7,7 +7,7 @@
 Current coordinates:
 
 - package: `python-drmanhatan`
-- version: `0.1.0`
+- version: `0.1.1`
 - repository: `github.com/animalab-netizen/python-drmanhatan`
 
 ## Distribution Model
@@ -31,5 +31,5 @@ pip install python-drmanhatan
 3. Update `CHANGELOG.md`
 4. Confirm version in `pyproject.toml`
 5. Commit release metadata
-6. Create and push tag `v0.1.0`
+6. Create and push tag `v0.1.1`
 7. Publish with the correct PyPI owner credentials
