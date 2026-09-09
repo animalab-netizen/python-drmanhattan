@@ -54,7 +54,7 @@ jobs:
         run: python -m build
 
       - name: Publish to PyPI
-        if: ${{ env.PYPI_API_TOKEN != '' }}
+        if: ${{ env.TWINE_PASSWORD != '' }}
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
