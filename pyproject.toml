@@ -3,8 +3,8 @@ requires = ["setuptools>=58"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-drmanhatan"
-version = "0.1.1"
+name = "python-drmanhattan"
+version = "0.1.2"
 description = "Observable event runtime for Python applications without telemetry vendor coupling."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ license = { text = "Apache-2.0" }
 authors = [
   { name = "ÂnimaLab", email = "animalab.desenvolvimento@gmail.com" }
 ]
-keywords = ["drmanhatan", "python", "observability", "telemetry", "events", "websocket"]
+keywords = ["drmanhattan", "python", "observability", "telemetry", "events", "websocket"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -28,9 +28,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/animalab-netizen/python-drmanhatan"
-Repository = "https://github.com/animalab-netizen/python-drmanhatan"
-Issues = "https://github.com/animalab-netizen/python-drmanhatan/issues"
+Homepage = "https://github.com/animalab-netizen/python-drmanhattan"
+Repository = "https://github.com/animalab-netizen/python-drmanhattan"
+Issues = "https://github.com/animalab-netizen/python-drmanhattan/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

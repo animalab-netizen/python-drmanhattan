@@ -1,8 +1,8 @@
-# python-drmanhatan
+# python-drmanhattan
 
-`python-drmanhatan` is the Python member of the DrManhatan observability family.
+`python-drmanhattan` is the Python member of the DrManhattan observability family.
 
-It preserves the same event and protocol interpretation model established in `kotlin-drmanhatan` while remaining natural for Python services, workers and async-adjacent applications.
+It preserves the same event and protocol interpretation model established in `kotlin-drmanhattan` while remaining natural for Python services, workers and async-adjacent applications.
 
 The package provides a compact runtime for:
 
@@ -15,9 +15,9 @@ The package provides a compact runtime for:
 
 The goal is to make event flow easier to standardize, easier to reason about, and less vulnerable to common mistakes around vendor coupling, protocol lifecycle tracking, retry visibility and message-oriented observability.
 
-## Why Use DrManhatan
+## Why Use DrManhattan
 
-`python-drmanhatan` is useful when a system needs observability but should not let transport or telemetry concerns leak into business code.
+`python-drmanhattan` is useful when a system needs observability but should not let transport or telemetry concerns leak into business code.
 
 Typical gains include:
 
@@ -40,7 +40,7 @@ Asynchrony usually makes systems harder to interpret because cause and effect ar
 - a retry is scheduled elsewhere
 - an error is observed after the original action has already left the current call stack
 
-`python-drmanhatan` improves this by giving those steps a shared event model and a shared session context.
+`python-drmanhattan` improves this by giving those steps a shared event model and a shared session context.
 
 This helps teams:
 
@@ -50,9 +50,9 @@ This helps teams:
 - expose protocol failures with enough metadata to support analysis and debugging
 - keep asynchronous work observable without forcing domain code to know the final monitoring backend
 
-## What DrManhatan Does Not Claim
+## What DrManhattan Does Not Claim
 
-`python-drmanhatan` does not try to replace your network stack, your analytics provider or your monitoring backend.
+`python-drmanhattan` does not try to replace your network stack, your analytics provider or your monitoring backend.
 
 It does not open WebSocket connections, execute HTTP calls or guarantee that every team will model events with identical naming conventions. The package is intentionally narrower than that: it standardizes event construction, enrichment and publication so the rest of the system can evolve without forcing the domain layer to know too much about the final destination of those events.
 
@@ -60,24 +60,24 @@ The reason is pragmatic: a communication observability package should make trans
 
 ## Repository
 
-- source: [github.com/animalab-netizen/python-drmanhatan](https://github.com/animalab-netizen/python-drmanhatan)
+- source: [github.com/animalab-netizen/python-drmanhattan](https://github.com/animalab-netizen/python-drmanhattan)
 
 ## Status
 
-`python-drmanhatan` is in early public release stage and evolving through incremental compatibility-safe improvements.
+`python-drmanhattan` is in early public release stage and evolving through incremental compatibility-safe improvements.
 
 The API is usable and unit-tested, but it is still under refinement. Expect incremental improvements in publication maturity, adapter coverage and protocol semantics as the package evolves.
 
 ## Coordinates
 
-- package: `python-drmanhatan`
-- repository: `python-drmanhatan`
-- version: `0.1.1`
+- package: `python-drmanhattan`
+- repository: `python-drmanhattan`
+- version: `0.1.2`
 
 Installation:
 
 ```bash
-pip install python-drmanhatan
+pip install python-drmanhattan
 ```
 
 ## API Stability Notes
@@ -106,7 +106,7 @@ Current guidance:
 - `ProtocolFailure`
 - `ProtocolClose`
 - `EventFactory`
-- `DrManhatan`
+- `DrManhattan`
 - `ProtocolSessionTracker`
 - `WebSocketSessionTracker`
 
@@ -173,7 +173,7 @@ This is the preferred abstraction when the important thing is not one isolated e
 
 ## Protocol Coverage
 
-`python-drmanhatan` covers stateful and message-oriented protocols without depending on a specific transport engine.
+`python-drmanhattan` covers stateful and message-oriented protocols without depending on a specific transport engine.
 
 This includes use cases such as:
 
@@ -188,10 +188,10 @@ The purpose is not transport execution. The purpose is observability of protocol
 ## Basic Example
 
 ```python
-from python_drmanhatan import (
+from python_drmanhattan import (
     CommonMetadata,
     DefaultEventBus,
-    DrManhatan,
+    DrManhattan,
     EventFactory,
     HttpError,
 )
@@ -205,7 +205,7 @@ class Printer:
 bus = DefaultEventBus()
 bus.subscribe(Printer())
 
-tracker = DrManhatan(
+tracker = DrManhattan(
     bus,
     EventFactory(
         metadata=CommonMetadata(
@@ -223,10 +223,10 @@ tracker.http_error("Checkout", HttpError(500, type="server_error"))
 ## WebSocket Example
 
 ```python
-from python_drmanhatan import (
+from python_drmanhattan import (
     CommonMetadata,
     DefaultEventBus,
-    DrManhatan,
+    DrManhattan,
     EventFactory,
     ProtocolClose,
     ProtocolEndpoint,
@@ -242,7 +242,7 @@ class Printer:
 bus = DefaultEventBus()
 bus.subscribe(Printer())
 
-tracker = DrManhatan(
+tracker = DrManhattan(
     bus,
     EventFactory(
         metadata=CommonMetadata(
@@ -295,9 +295,9 @@ tracker.web_socket_connection_closed(
 ## Session Example
 
 ```python
-from python_drmanhatan import DefaultEventBus, DrManhatan, EventFactory, Protocol, ProtocolEndpoint
+from python_drmanhattan import DefaultEventBus, DrManhattan, EventFactory, Protocol, ProtocolEndpoint
 
-tracker = DrManhatan(DefaultEventBus(), EventFactory())
+tracker = DrManhattan(DefaultEventBus(), EventFactory())
 
 session = tracker.protocol_session(
     Protocol.Mqtt,
@@ -314,26 +314,26 @@ session.reconnect_scheduled(2, 1500, "network_lost")
 
 ```bash
 python3 -m unittest discover tests
-python3 -m pip wheel . --no-build-isolation --no-deps -w /tmp/python-drmanhatan-dist
+python3 -m pip wheel . --no-build-isolation --no-deps -w /tmp/python-drmanhattan-dist
 ```
 
 ## Publishing
 
-See [PUBLICATION.md](/Users/caiosanchezchristino/Desktop/drmanhatan-projects/python-drmanhatan/PUBLICATION.md).
+See [PUBLICATION.md](/Users/caiosanchezchristino/Desktop/drmanhattan-projects/python-drmanhattan/PUBLICATION.md).
 
 ## Contributing
 
-See [CONTRIBUTING.md](/Users/caiosanchezchristino/Desktop/drmanhatan-projects/python-drmanhatan/CONTRIBUTING.md).
+See [CONTRIBUTING.md](/Users/caiosanchezchristino/Desktop/drmanhattan-projects/python-drmanhattan/CONTRIBUTING.md).
 
 ## Changelog
 
-See [CHANGELOG.md](/Users/caiosanchezchristino/Desktop/drmanhatan-projects/python-drmanhatan/CHANGELOG.md).
+See [CHANGELOG.md](/Users/caiosanchezchristino/Desktop/drmanhattan-projects/python-drmanhattan/CHANGELOG.md).
 
 ## License
 
-Apache-2.0. See [LICENSE](/Users/caiosanchezchristino/Desktop/drmanhatan-projects/python-drmanhatan/LICENSE).
+Apache-2.0. See [LICENSE](/Users/caiosanchezchristino/Desktop/drmanhattan-projects/python-drmanhattan/LICENSE).
 
 ## Notes
 
-- semantic parity with `kotlin-drmanhatan` matters more than textual symmetry
+- semantic parity with `kotlin-drmanhattan` matters more than textual symmetry
 - transport adapters should stay optional and ecosystem-specific

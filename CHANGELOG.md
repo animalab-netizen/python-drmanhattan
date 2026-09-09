@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.1
+## 0.1.2
 
-- created the standalone `python-drmanhatan` package
+- created the standalone `python-drmanhattan` package
 - added immutable event modeling
 - added observer-based event publication
 - added enricher pipeline support

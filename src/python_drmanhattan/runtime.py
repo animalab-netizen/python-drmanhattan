@@ -457,7 +457,7 @@ class EventFactory:
         return self._enrich(Event(name=name, attributes=mapped))
 
 
-class DrManhatan:
+class DrManhattan:
     def __init__(self, bus: EventBus, factory: EventFactory) -> None:
         self._bus = bus
         self._factory = factory
@@ -650,7 +650,7 @@ class DrManhatan:
 class ProtocolSessionTracker:
     def __init__(
         self,
-        dr_manhatan: DrManhatan,
+        dr_manhatan: DrManhattan,
         protocol: Protocol,
         endpoint: ProtocolEndpoint,
         session_id: str | None = None,
@@ -758,7 +758,7 @@ class ProtocolSessionTracker:
 class WebSocketSessionTracker(ProtocolSessionTracker):
     def __init__(
         self,
-        dr_manhatan: DrManhatan,
+        dr_manhatan: DrManhattan,
         endpoint: ProtocolEndpoint,
         session_id: str | None = None,
     ) -> None:

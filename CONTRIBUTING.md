@@ -2,7 +2,7 @@
 
 ## Principles
 
-- preserve semantic parity with `kotlin-drmanhatan`
+- preserve semantic parity with `kotlin-drmanhattan`
 - keep the public API small and explicit
 - avoid coupling the core package to vendor-specific SDKs
 - prefer immutable value objects and small contracts

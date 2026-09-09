@@ -10,10 +10,10 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from python_drmanhatan import (  # noqa: E402
+from python_drmanhattan import (  # noqa: E402
     CommonMetadata,
     DefaultEventBus,
-    DrManhatan,
+    DrManhattan,
     Event,
     EventFactory,
     HttpError,
@@ -69,12 +69,12 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(1, len(errors))
         self.assertIsInstance(errors[0], ValueError)
 
-    def test_drmanhatan_publishes_websocket_events(self) -> None:
+    def test_drmanhattan_publishes_websocket_events(self) -> None:
         recorder = Recorder()
         bus = DefaultEventBus()
         bus.subscribe(recorder)
 
-        tracker = DrManhatan(bus, EventFactory(metadata=CommonMetadata("1.0.0")))
+        tracker = DrManhattan(bus, EventFactory(metadata=CommonMetadata("1.0.0")))
         endpoint = ProtocolEndpoint(
             "chat", address="wss://socket.example.com", channel="rooms/general"
         )
@@ -110,7 +110,7 @@ class RuntimeTests(unittest.TestCase):
         bus = DefaultEventBus()
         bus.subscribe(recorder)
 
-        tracker = DrManhatan(bus, EventFactory())
+        tracker = DrManhattan(bus, EventFactory())
         session = tracker.protocol_session(Protocol.Mqtt, ProtocolEndpoint("broker"), "mqtt-9")
 
         session.heartbeat_sent("hb-out-1")
